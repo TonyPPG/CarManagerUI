@@ -1,0 +1,44 @@
+<h1>New Car</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Make</mat-label>
+    <mat-select [(ngModel)]="car.make">
+      <mat-option *ngFor="let make of makes" [value]="make.name" required>
+        {{make.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Body Type</mat-label>
+    <mat-select [(ngModel)]="car.body">
+      <mat-option *ngFor="let bodyType of bodyTypes" [value]="bodyType.id" required>
+        {{bodyType.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Model" [(ngModel)]="car.model" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Year" [(ngModel)]="car.year" pattern="^\d{4}$" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Color</mat-label>
+    <mat-select [(ngModel)]="car.color">
+      <mat-option *ngFor="let color of colors" [value]="color.name" required>
+        {{color.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Price" [(ngModel)]="car.price" type="number" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Stock" [(ngModel)]="car.stock" pattern="[0-9]*" type="number" required>
+  </mat-form-field>
+</div>
+<div mat-dialog-cations>
+  <button mat-raised-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button (click)="createCar()" [disabled]="!carValidator(car)" color="primary">Create</button>
+</div>
