@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  vehicleManagerApiUrl: 'https://localhost:5001/api',
+  vehicleManagerApiUrl: 'https://localhost:5001/api'
 };

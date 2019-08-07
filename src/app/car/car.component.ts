@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Car } from '../model/car';
-import { CarService } from '../services/car/car.service';
-import { BODYTYPES } from '../model/BodyType'
-import { MAKES } from '../model/Make'
-import { COLORS } from '../model/Color'
+import { Car } from 'app/model/car';
+import { CarService } from 'app/services/car/car.service';
+import { BODYTYPES } from 'app/model/BodyType'
+import { MAKES } from 'app/model/Make'
+import { COLORS } from 'app/model/Color'
 import { MatSnackBar, MatDialog } from '@angular/material';
-import { NewCarComponent } from '../new-car/new-car.component';
+import { NewCarComponent } from 'app/new-car/new-car.component';
 
 @Component({
   selector: 'app-car',
@@ -17,6 +17,7 @@ export class CarComponent implements OnInit {
   showLoading: boolean
   cars: Car[]
   carValidator = Car.isValid
+  searchTerm: string
   
   //not a good way to map body type, modal, make etc, should grab from database at backend
   bodyTypes = BODYTYPES

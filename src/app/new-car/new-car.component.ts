@@ -1,10 +1,10 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Car } from '../model/car';
-import { BODYTYPES } from '../model/BodyType'
-import { MAKES } from '../model/Make'
-import { COLORS } from '../model/Color'
-import { CarService } from '../services/car/car.service';
+import { Car } from 'app/model/car';
+import { BODYTYPES } from 'app/model/BodyType'
+import { MAKES } from 'app/model/Make'
+import { COLORS } from 'app/model/Color'
+import { CarService } from 'app/services/car/car.service';
 
 @Component({
   selector: 'app-new-car',
