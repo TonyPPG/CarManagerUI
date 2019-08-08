@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Car } from 'app/model/car';
+import { Car } from 'app/model/Car';
 import { BODYTYPES } from 'app/model/BodyType'
 import { MAKES } from 'app/model/Make'
 import { COLORS } from 'app/model/Color'
