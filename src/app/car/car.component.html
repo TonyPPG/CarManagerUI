@@ -23,57 +23,9 @@
     <mat-spinner *ngIf="showLoading" class="loading-circle">
     </mat-spinner>
     <mat-accordion *ngIf="cars" class="headers-align">
-      <mat-expansion-panel *ngFor="let car of cars">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <mat-icon>directions_car</mat-icon>
-            {{car.year}} {{car.make}} {{car.model}} {{bodyTypes[car.body].name}}
-          </mat-panel-title>
-          <mat-panel-description>
-            {{car.engine}} ${{car.price}}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <mat-form-field>
-          <input matInput placeholder="Year" [(ngModel)]="car.year" pattern="^\d{4}$">
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Make</mat-label>
-          <mat-select [(ngModel)]="car.make">
-            <mat-option *ngFor="let make of makes" [value]="make.name" required>
-              {{make.name}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Model" [(ngModel)]="car.model" required>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Body Type</mat-label>
-          <mat-select [(ngModel)]="car.body">
-            <mat-option *ngFor="let bodyType of bodyTypes" [value]="bodyType.id" required>
-              {{bodyType.name}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Color</mat-label>
-          <mat-select [(ngModel)]="car.color">
-            <mat-option *ngFor="let color of colors" [value]="color.name" required>
-              {{color.name}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Price" [(ngModel)]="car.price" type="number">
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Stock" [(ngModel)]="car.stock" pattern="" type="number">
-        </mat-form-field>
-        <mat-action-row>
-          <button mat-raised-button (click)="saveCar(car)" color="primary" [disabled]="!carValidator(car)"><mat-icon>create</mat-icon> Update</button>
-          <button mat-raised-button (click)="deleteCar(car)" color="warn"><mat-icon>delete_forever</mat-icon> Delete</button>
-        </mat-action-row>
-      </mat-expansion-panel>
+      <div *ngFor="let car of cars">
+        <app-car-item [car]="car" (refresh)="getCars()"></app-car-item>
+      </div>
     </mat-accordion>
   </div>
 </mat-card>

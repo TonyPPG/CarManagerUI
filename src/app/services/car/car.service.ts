@@ -34,6 +34,10 @@ export class CarService {
     return this.http.post<any>(this.carUrl+'/search', {term: term})
   }
 
+  uploadCarImage( ): Observable<any>{
+    return this.http.post<any>('', {})
+  }
+
   constructor(
     private http: HttpClient
   ) { }

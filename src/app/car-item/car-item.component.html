@@ -1,0 +1,58 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon>directions_car</mat-icon>
+      Year: {{car.year}} Make: {{car.make}} Model: {{car.model}} Body: {{bodyTypes[car.body].name}}
+    </mat-panel-title>
+    <mat-panel-description>
+      ${{car.price}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-form-field>
+    <input matInput placeholder="Year" [(ngModel)]="car.year" pattern="^\d{4}$">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Make</mat-label>
+    <mat-select [(ngModel)]="car.make">
+      <mat-option *ngFor="let make of makes" [value]="make.name" required>
+        {{make.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Model" [(ngModel)]="car.model" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Body Type</mat-label>
+    <mat-select [(ngModel)]="car.body">
+      <mat-option *ngFor="let bodyType of bodyTypes" [value]="bodyType.id" required>
+        {{bodyType.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Color</mat-label>
+    <mat-select [(ngModel)]="car.color">
+      <mat-option *ngFor="let color of colors" [value]="color.name" required>
+        {{color.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Price" [(ngModel)]="car.price" type="number">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Stock" [(ngModel)]="car.stock" pattern="" type="number">
+  </mat-form-field>
+  <ngx-uploadcare-widget
+    images-only="true"
+    public-key="537732046f855a9c09ca"
+    (on-upload-complete)="onUploadHandler($event)"
+  ></ngx-uploadcare-widget>
+  <br>
+  <img [src]="car.imageUrl" alt="" class="car-image">
+  <mat-action-row>
+    <button mat-raised-button (click)="saveCar(car)" color="primary" [disabled]="!carValidator(car)"><mat-icon>create</mat-icon> Update</button>
+    <button mat-raised-button (click)="deleteCar(car)" color="warn"><mat-icon>delete_forever</mat-icon> Delete</button>
+  </mat-action-row>
+</mat-expansion-panel>

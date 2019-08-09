@@ -37,6 +37,11 @@
   <mat-form-field>
     <input matInput placeholder="Stock" [(ngModel)]="car.stock" pattern="[0-9]*" type="number" required>
   </mat-form-field>
+  <ngx-uploadcare-widget
+    images-only="true"
+    public-key="537732046f855a9c09ca"
+    (on-upload-complete)="onUploadHandler($event)"
+  ></ngx-uploadcare-widget>
 </div>
 <div mat-dialog-cations>
   <button mat-raised-button (click)="onNoClick()">Cancel</button>

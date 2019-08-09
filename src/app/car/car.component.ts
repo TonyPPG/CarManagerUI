@@ -16,14 +16,8 @@ export class CarComponent implements OnInit {
 
   showLoading: boolean
   cars: Car[]
-  carValidator = Car.isValid
   searchTerm: string
   
-  //not a good way to map body type, modal, make etc, should grab from database at backend
-  bodyTypes = BODYTYPES
-  makes = MAKES
-  colors = COLORS
-
   getCars(): void {
     this.cars = undefined
     this.showLoading = true
@@ -35,38 +29,7 @@ export class CarComponent implements OnInit {
       })
   }
 
-  saveCar( car: Car ): void {
-    this.carService.updateCar(car)
-      .subscribe(result => {
-        console.log(result)
-        this.openSnackBar( result.message, 'Ok')
-      })
-  }
-
-  deleteCar( car: Car): void {
-    this.carService.deleteCar(car)
-      .subscribe(result => {
-        console.log(result)
-        this.openSnackBar( result.message, 'Ok')
-        this.getCars()
-      })
-  }
-
-  searchCar( term: string): void {
-    this.showLoading = true
-
-    this.carService.searchCar(term)
-      .subscribe(cars => {
-        this.cars = cars
-        this.showLoading = false
-      })
-  }
-
-  openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action, {
-      duration: 2000,
-    });
-  }
+  
 
   createNewCar(): void {
     const dialogRef = this.dialog.open(NewCarComponent, {

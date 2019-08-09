@@ -16,6 +16,8 @@ export class Car {
 
   body: string
 
+  imageUrl: string
+
   //not a good way of validation, should have create a helper
   public static isValid(car: Car): boolean {
     let isValid = true

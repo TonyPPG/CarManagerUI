@@ -14,7 +14,6 @@ import { CarService } from 'app/services/car/car.service';
 export class NewCarComponent {
 
   carValidator = Car.isValid
-  //not a good way to map body type, modal, make etc, should grab from database at backend
   bodyTypes = BODYTYPES
   makes = MAKES
   colors = COLORS
@@ -36,5 +35,9 @@ export class NewCarComponent {
         console.log(result)
         this.onNoClick()
       })
+  }
+
+  onUploadHandler(info: any): void {
+    this.car.imageUrl = info.cdnUrl
   }
 }
