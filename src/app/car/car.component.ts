@@ -45,6 +45,16 @@ export class CarComponent implements OnInit {
     })
   }
 
+  searchCar( term: string): void {
+    this.showLoading = true
+
+    this.carService.searchCar(term)
+      .subscribe(cars => {
+        this.cars = cars
+        this.showLoading = false
+      })
+  }
+
   constructor( private carService: CarService, public snackBar: MatSnackBar, private dialog: MatDialog ) { }
 
   ngOnInit() {
