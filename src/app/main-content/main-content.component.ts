@@ -11,7 +11,7 @@ export class MainContentComponent implements OnInit {
   mobileQuery: MediaQueryList
 
   fillerNav = [
-    { label: 'Cars', link: 'cars' }
+    { label: 'Cars Stock', link: 'cars' }
   ]
 
   private _mediaQueryListener: () => void

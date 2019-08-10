@@ -9,7 +9,10 @@
     </mat-panel-description>
   </mat-expansion-panel-header>
   <mat-form-field>
-    <input matInput placeholder="Year" [(ngModel)]="car.year" pattern="^\d{4}$">
+    <input matInput placeholder="Year" [(ngModel)]="car.year" pattern="^(19|20)\d{2}$">
+    <mat-error>
+      Year Must later than <strong>1900</strong>
+    </mat-error>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Make</mat-label>
@@ -18,9 +21,15 @@
         {{make.name}}
       </mat-option>
     </mat-select>
+    <mat-error>
+      Make is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
   <mat-form-field>
     <input matInput placeholder="Model" [(ngModel)]="car.model" required>
+    <mat-error>
+      Car Model is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Body Type</mat-label>
@@ -29,6 +38,9 @@
         {{bodyType.name}}
       </mat-option>
     </mat-select>
+    <mat-error>
+      Body type is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Color</mat-label>
@@ -37,12 +49,21 @@
         {{color.name}}
       </mat-option>
     </mat-select>
+    <mat-error>
+      Color is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Price" [(ngModel)]="car.price" type="number">
+    <input matInput placeholder="Price" [(ngModel)]="car.price" type="number" required>
+    <mat-error>
+      Price is <strong>invalid</strong>
+    </mat-error>
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Stock" [(ngModel)]="car.stock" pattern="" type="number">
+    <input matInput placeholder="Stock" [(ngModel)]="car.stock" pattern="[0-9]*" type="number required">
+    <mat-error>
+      Stock is <strong>invalid</strong>
+    </mat-error>
   </mat-form-field>
   <ngx-uploadcare-widget
     images-only="true"
