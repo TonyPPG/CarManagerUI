@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="card-toolbar">
+<mat-toolbar color="primary" class="card-toolbar car-toolbar">
   <span>Cars</span>
   <span class="spacer"></span>
   <button mat-icon-button (click)="createNewCar()">
@@ -15,9 +15,6 @@
       <mat-icon>search</mat-icon>
     </button>
   </mat-form-field>
-</mat-card>
-
-<mat-card class='main-card'>
   <mat-card-title>Car List</mat-card-title>
   <div class="car_list">
     <mat-spinner *ngIf="showLoading" class="loading-circle">
