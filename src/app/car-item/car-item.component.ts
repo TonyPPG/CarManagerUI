@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material';
 @Component({
   selector: 'app-car-item',
   templateUrl: './car-item.component.html',
-  styleUrls: ['./car-item.component.css']
+  styleUrls: ['../app.component.css', './car-item.component.css']
 })
 export class CarItemComponent implements OnInit {
 

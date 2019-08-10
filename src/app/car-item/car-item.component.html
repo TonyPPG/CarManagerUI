@@ -5,7 +5,8 @@
       <span class="car-title">Year: {{car.year}} Make: {{car.make}} Model: {{car.model}} Body: {{bodyTypes[car.body].name}}</span>
     </mat-panel-title>
     <mat-panel-description>
-      ${{car.price}}
+      <span class="span-spacer"></span>
+      <span class="car-title">${{car.price}}</span>
     </mat-panel-description>
   </mat-expansion-panel-header>
   <mat-form-field>
