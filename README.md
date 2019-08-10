@@ -6,6 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+Or pull docker image from dokerhub.
+You can run it by using command: `docker run -v ${PWD}/app -p 4201:4200 --rm carmanagerui:dev`
+
 ## Usage
 
 This Angular App would allow you to add/search/update/delete car in car list, it communicates to the backend via API.
